@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.26)  15 NOV 2017 17:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.26)  15 NOV 2017 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -381,32 +381,36 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 108.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Underfull \vbox (badness 1337) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
- [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+ []
+
+[1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-<rippleslide.png, id=11, 1584.92125pt x 1375.1375pt>
+<rippleslide.png, id=12, 1584.92125pt x 1375.1375pt>
 File: rippleslide.png Graphic file (type png)
  <use rippleslide.png>
-Package pdftex.def Info: rippleslide.png used on input line 175.
+Package pdftex.def Info: rippleslide.png used on input line 211.
 (pdftex.def)             Requested size: 240.0pt x 208.23412pt.
 
-Overfull \hbox (7.82243pt too wide) in paragraph at lines 184--185
-[]\T1/aer/m/n/9 Describe sys-tem setup, com-po-nents, ex-ter-nal li-braries, ha
-rd-
- []
 
-<overview.jpg, id=13, 1042.31662pt x 1042.31662pt>
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Citation `ttorrentLink' on page \thepage  undefined on input lin
+e 227.
+
+<overview.jpg, id=14, 1042.31662pt x 1042.31662pt>
 File: overview.jpg Graphic file (type jpg)
  <use overview.jpg>
-Package pdftex.def Info: overview.jpg used on input line 197.
+Package pdftex.def Info: overview.jpg used on input line 238.
 (pdftex.def)             Requested size: 240.0pt x 239.99815pt.
 
 
-LaTeX Warning: Citation `estimote' on page \thepage  undefined on input line 20
-0.
+LaTeX Warning: Citation `estimote' on page \thepage  undefined on input line 24
+1.
 
 [2 <./rippleslide.png> <./overview.jpg>]
 No file report.bbl.
@@ -415,12 +419,12 @@ No file report.bbl.
 ] (./report.aux) ) 
 Here is how much of TeX's memory you used:
  5121 strings out of 492995
- 69318 string characters out of 6132704
- 166466 words of memory out of 5000000
+ 69317 string characters out of 6132704
+ 167466 words of memory out of 5000000
  8557 multiletter control sequences out of 15000+600000
  45007 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,40p,844b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,11n,40p,407b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.e
 nc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
@@ -429,7 +433,7 @@ r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
 local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/tex
 live/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-Output written on report.pdf (3 pages, 7725189 bytes).
+Output written on report.pdf (3 pages, 7725174 bytes).
 PDF statistics:
  47 PDF objects out of 1000 (max. 8388607)
  31 compressed objects within 1 object stream
