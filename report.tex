@@ -97,9 +97,9 @@
 % e-mail address with \email.
 %
 % 1st. author
-\alignauthor \normalsize{Laurin Paech,  Sven Knobloch, David Yenicelik}\\
-	\affaddr{\normalsize{knsven 14-945-166, lpaech 15-944-242, winbergs - 15-941-222,  cfriess  15-943-111, isaakh 15-913-312, yedavid 15-944-366}}\\
-	\email{\normalsize{one@student.ethz.ch, two@student.ethz.ch, three@student.ethz.ch, one@student.ethz.ch, two@student.ethz.ch, three@student.ethz.ch}}
+\alignauthor \normalsize{Carl Friess, Isaak Hanimann, Sven Knobloch, Laurin Paech,  Sebastian Winberg, David Yenicelik}\\
+	\affaddr{\normalsize{cfriess  15-943-111, isaakh 15-913-312, knsven 14-945-166, lpaech 15-944-242, winbergs 15-941-222,  yedavid 15-944-366}}\\
+	\email{\normalsize{cfriess@student.ethz.ch, isaakh@student.ethz.ch, knsven@student.ethz.ch, lpaech@student.ethz.ch, winbergs@student.ethz.ch, yedavid@student.ethz.ch}}
 }
 
 
@@ -108,15 +108,14 @@
 \maketitle
 
 \begin{abstract}
-We propose a novel social networking application based on photos. 
-A person can take a picture, which is then shared amongst all physically close phones that are part of the network. \\
-Due to it's architecture, the Android app does not rely on high-bandwidth connections from a centralized server, but rather uses a distributed network peer to peer network to transmit photos between individual nodes.\\
-Out proposed app uses a central tracker to inform each participating node about all other participating nodes in the network. 
-Then, nodes can transmit pictures within the network. 
-These transmissions are tracked through a centralized Amazon AWS server which helps coordinate transmissions if photos are not yet sent or received. 
-Using a peer to peer transmission protocol, small chunks of the picture file are transmitted from different nodes in the network. 
-As such, this tracker acts as a coordinator, but does not rely on a high-bandwith or a high-load connection. \\
-Our goal is to have a fully-working prototype with the proposed architecture, where a single node delivers to another node, and where a node can ping other nodes if it is 'missing' a photo. 
+We propose a novel social networking application for sharing photos in close physical proximity. 
+A user can take a picture, which is then broadcasted to all phones that are part of the network and in the direct vicinity. \\
+To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
+Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.\\
+The fundamental transfer of image files is done using BitTorrent. A central tracker will facilitate the discovery of nodes in accordance with the BitTorrent protocol. A receiving node will then download the image form the initial node and from other nodes, which have already completed the download. The tracker will use a JavaScript BitTorrent implementation \todo{Link} executed in a node.js environment hosted on a AWS EC2 instance.\\
+Devices use the Bluetooth Low Energy Protocol for close proximity device discovery and for transmitting identifying information of  the broadcasted images.\\
+A centralized server further allows devices to retrieve torrent files, which are necessary for the BitTorrent protocol.\\
+Our goal is to have a fully-working prototype with the proposed architecture, where a single node delivers to another node, and where a node can ping other nodes if it is 'missing' a photo.  \todo{???}
 All participating, delivering and receiving nodes are determined by the tracker.
 \end{abstract}
 
