@@ -108,20 +108,17 @@
 \maketitle
 
 \begin{abstract}
-We propose a social networking application for sharing photos in close physical proximity. 
+We propose a social networking application for sharing photos in close physical proximity, utilizing a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.
+
 A user can take a picture, which is then broadcasted to all phones that are in the direct vicinity and part of the network.
 
-To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
-Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.
+The application use the Bluetooth Low Energy Protocol for close proximity device discovery and messaging. However, the fundamental transfer of image files leverages peer-to-peer technology to reduce operational costs and increase performance. 
 
-The fundamental transfer of image files is done using BitTorrent. A central tracker will facilitate the discovery of nodes in accordance with the BitTorrent protocol. A receiving node will then download the image form the initial node and from other nodes, which have already completed the download. The tracker will use a JavaScript BitTorrent implementation \todo{Link} executed in a node.js environment hosted on a AWS EC2 instance.
+Every device runs a BitTorrent client, which seeds images it has already downloaded to other nodes within the network. The discovery of seeding devices is provided by a central BitTorrent tracker.
 
-Devices use the Bluetooth Low Energy Protocol for close proximity device discovery and for transmitting identifying information of  the broadcasted images.
+Another centralized server further allows devices to share torrent files, enabling the use of the BitTorrent protocol.
 
-A centralized server further allows devices to retrieve torrent files, which are necessary for the BitTorrent protocol.
-
-Our goal is to have a fully-working prototype with the proposed architecture.
-All participating, delivering and receiving nodes are determined by the tracker.
+Our goal is to build a fully-working prototype with the proposed architecture.
 \end{abstract}
 
 \section{Introduction}
