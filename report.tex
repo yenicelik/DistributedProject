@@ -130,7 +130,7 @@ We first introduce a few definitions.
 \item \textbf{to ripple} \textit{(verb)}: When person A shares a photo (the ripple), and person B decides to share it again, the photo has 'rippled' once as it propagated over one person since the initial share.
 \item \textbf{tracker}: A central server handling the distribution logic
 \item \textbf{AWS}: Amazon Web Services. The cloud, which will act as the tracker.
-\item \textbf{P2P}: Peer to peer
+\item \textbf{P2P}: Peer-to-peer
 \item \textbf{$ n $}: The number of nodes in observed network. In our case, these nodes will be android devices.
 \end{enumerate}
 
@@ -141,14 +141,14 @@ These services are often criticized for removing the personal element from socia
 Our approach to social networking is to augment social interaction, rather than redefining and possibly inhibiting it. Social Networks should help form connections between people and not just build on existing ones.
 
 \subsection{Concept}
-Considering the above problem statement, we propose Ripple: a social network allowing users to share moments with other users in their close proximity. The social network will consist of a freely available Android application with a focus on photos.
+Considering the above problem statement, we propose \textit{Ripple BT}: a social network allowing users to share moments with other users in their close proximity. The social network will consist of a freely available Android application with a focus on photos.
 
 After a user takes a picture it is broadcasted to all other users of the app in their immediate vicinity, regardless of their affiliation with the broadcasting user. Communication is in principle anonymous (disregarding content) and always public.
 
-Users receiving brodcasted images may view them once. They are then presented with the choice of either simply discarding the image or instead rebroadcasting ('re-rippling') it to other users in their proximity.
+Users receiving brodcasted images may view them once. They are then presented with the choice of either simply discarding the image or instead rebroadcasting (\textit{re-rippling}) it to other users in their proximity.
 Each user can view the ripple only once regardless of the number of re-ripples near them.
 
-We believe this social network will encourage social interaction, as the communication can only take place when users are close to each other. Furthermore, the network allows interesting content to 'propagate', making it possible to share memorable moments in a wider radius.
+We believe this social network will encourage social interaction, as the communication can only take place when users are close to each other. Furthermore, the network allows interesting content to propagate, making it possible to share memorable moments in a wider radius.
 
 \subsection{Application Scenario}
 We will demonstrate a typical use case of the Android application in a group of people attending an event: \textit{Alice}, \textit{Bob}, \textit{Charlie} and \textit{Daniel}.
@@ -192,15 +192,15 @@ For the first challenge of user discovery we investigated using GPS data to trac
 We considered the following aspects for the second challenge of sending the image data.
 It became clear early on that Bluetooth Low Energy would not have high enough data rates to send an entire image from one device to another in a reasonable time frame and acceptable reliability. For this reason we first looked into a centralized structure (using Amazon S3) where images are stored with a UUID and the UUID is sent to the receiver over Bluetooth. The image can then be retrieved from the central server using the UUID.
 
-While this implementation works, storage and bandwidth costs especially for a later support of video files would be fairly high. With the intentions of shifting most of the load to user devices and not storing the image data on a central server we looked into peer to peer technology. We considered the use of IPFS but decided to use the BitTorrent file sharing protocol since it is well established and commonly used with a large amount of software support. \todo{java library} 
+While this implementation works, storage and bandwidth costs especially for a later support of video files would be fairly high. With the intentions of shifting most of the load to user devices and not storing the image data on a central server we looked into peer-to-peer technology. We considered the use of \textit{IPFS} \todo{LINK} but decided to use the BitTorrent file sharing protocol since it is well established and commonly used with a large amount of software support. \todo{java library} 
 
-With BitTorrent the devices can distribute the content between themselves. However, this requires a torrent file, leading to the question of how to send this file to other devices. Our first idea was to send the torrent file over Bluetooth Low Energy. But since torrent files can have a significant size themselves and BLE only allows for low data rates, we chose to only pass an identifier over Bluetooth and retrieve the torrent file from the central server  using a custom RESTful HTTP API. Since one torrent file is only a few kilobytes big, we have significantly lowered the cost by several orders of magnitude.
+With BitTorrent the devices can distribute the content between themselves. However, this requires a torrent file, leading to the question of how to send this file to other devices. Our first idea was to send the torrent file over Bluetooth Low Energy. But since torrent files can have a significant size themselves and BLE only allows for low data rates, we chose to only pass an identifier over Bluetooth and retrieve the torrent file from the central server using a custom RESTful HTTP API. Since one torrent file is only a few kilobytes big, we have significantly lowered the cost by several orders of magnitude.
 
 
 \section{System Overview}
 
 \subsection{System Architecture}
-To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
+To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer-to-peer network to transmit photos between individual nodes.
 
 Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.
 
@@ -221,11 +221,11 @@ Devices use the Bluetooth Low Energy Protocol for close proximity device discove
 \subsection{BitTorrent File Transfer}
 Image files, which make up the largest portion of the data traffic, are transferred between devices peer-to-peer using the BitTorrent protocol.
 
-We will use the ttorrent library\todo{LINK}, a Java implementation of the BitTorrent protocol. With the help of this library, every device will run a BitTorrent client in an Android Service\todo{LINK}.
+We will use the \textit{ttorrent} library\todo{LINK}, a Java implementation of the BitTorrent protocol. With the help of this library, every device will run a BitTorrent client in an Android Service\todo{LINK}.
 
 Each phone seeds all images it creates and receives for 24 hours. This way many seeding devices should become available quickly allowing for the load to be shared effectively. Furthermore, there is no need for any device or server to store the full image file indefinitely.
 
-The BitTorrent protocol relies on a central tracker to let clients know which other clients are seeding the file. We chose to use the JavaScript bittorrent-tracker library \todo{LINK} to achieve this functionality. The tracker will run on an Amazon EC2 \todo{LINK} instance.
+The BitTorrent protocol relies on a central tracker to let clients know which other clients are seeding the file. We chose to use the JavaScript \textit{bittorrent-tracker} library \todo{LINK} to achieve this functionality. The tracker will run on an \textit{Amazon EC2} \todo{LINK} instance.
 
 \subsection{Distribution of Torrent Files}
 One of the challenges that we face is the limited data rates of the Bluetooth Low Energy protocol.
@@ -241,13 +241,13 @@ For the advertisement of ripples we will use the Bluetooth Low Energy protocol a
 
 Each device will have a well known GATT service for ripples. In this service there is a well known characteristic that stores a sequence number. In addition, the service will have a characteristic for each ripple it is currently advertising. The UUID of that characteristic is used to query the torrent file from the central server.
 
-The application is constantly scanning for devices with the ripple GATT service and connects to them automatically.
+The application is constantly scanning for devices with the Ripple GATT service and connects to them automatically.
 
-If a device wants to send/broadcast a ripple, it adds a characteristic with the respective UUID to the ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existence of a new ripple. The receiving device will then scan for new characteristics and proceed to retrieve the image for the ripple.
+If a device wants to send/broadcast a ripple, it adds a characteristic with the respective UUID to the Ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existence of a new ripple. The receiving device will then scan for new characteristics and proceed to retrieve the image for the ripple.
 
 \subsection{Local SQLite Database}
-The application needs to track information about the ripples it creates and receives. Primarily, the application concept only allows users to receive and view ripples once, so the application must be able to check for duplicates. Furthermore, the embedded BitTorrent client should only seed ripples for 24h, which will be ensured by storing the time frame in a database.
-We have chosen to use an SQLite database for this task, as it provides all necessary features with good performance, while being easily embeddable in the application.
+The application needs to track information about the ripples it creates and receives. Primarily, the application concept only allows users to receive and view ripples once, so the application must be able to check for duplicates. Furthermore, the embedded BitTorrent client should only seed ripples for 24 hours, which will be ensured by storing the time frame in a database.
+We have chosen to use an \textit{SQLite} \todo{LINK} database for this task, as it provides all necessary features with good performance, while being easily embeddable in the application.
 
 \section{Requirements}
 
@@ -273,7 +273,7 @@ We identified and sectioned the project in the following work packages:
     \item {\bf WP1 - BitTorrent Client}: Implementing the management of the embedded BitTorrent Client.
     \item {\bf WP2 - Distribution Server}: Implementing a RESTful API for torrent file distribution.
     \item {\bf WP3 - Camera UI}: Implementing the camera and photo capture functionality of the app using the Android API.
-    \item {\bf WP4 - Receive UI}: Implementing the receive stack of ripples including the reripple and discard functionality.
+    \item {\bf WP4 - Receive UI}: Implementing the receive stack of ripples including the re-ripple and discard functionality.
     \item {\bf WP5 - BLE Sending}: Implementing the sending/broadcasting of ripples via Bluetooth Low Energy.
     \item {\bf WP6 - BLE Receiving}: Implementing the receiving and scanning of ripples via Bluetooth Low Energy.
     \item {\bf WP7 - Local Database}: Implementing an interface to a local SQLite database for the storage of send and received ripples.
@@ -286,13 +286,13 @@ Each working package is intended to be done by an individual team member. Due to
 We plan to uphold the following schedule:
 \begin{itemize}
 \item  \textbf{24. Nov. 2017}: First working versions of the individual work packages
-\item  \textbf{4. Dec. 2017}: Integrated all work packages into one coherent app
+\item  \textbf{4. Dec. 2017}: Integrated all work packages into one coherent working app
 \item \textbf{8. Dec. 2017}: Tested application on multiple nodes, identifying bugs and generally debugging the system
-\item \textbf{14. Dec. 2017}: Finished presentation and Ripple logo. 
-\item \textbf{15. Dec. 2017}: Deadline for submission of presentation slides and project logo.
-\item \textbf{16. Dec. 2017}: Finished debugging entire system and fully working version of the app.
-\item \textbf{17. Dec. 2017}: Deadline for submission of code.
-\item \textbf{18. Dec. 2017}: Presentation and demo of project.
+\item \textbf{14. Dec. 2017}: Finished presentation and Ripple logo
+\item \textbf{15. Dec. 2017}: Deadline for submission of presentation slides and project logo
+\item \textbf{16. Dec. 2017}: Finished debugging entire system and fully working version of the app
+\item \textbf{17. Dec. 2017}: Deadline for submission of code
+\item \textbf{18. Dec. 2017}: Presentation and demo of project
 \end{itemize}
 
 
