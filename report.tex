@@ -161,8 +161,8 @@ With Ripple BT we aim to redesign the system from the ground up with a focus on 
 \subsection{Challenges}
 This project has two main distributed challenges:
 \begin{enumerate} 
-    \item Find users in close proximity
-    \item Send the image data
+    \item Finding users in close proximity
+    \item Sending the image data
 \end{enumerate}
 
 For the first challenge of user discovery we investigated using GPS data to track the user location. Since GPS has a fairly weak accuarcy with uncertanties as high as a few hundred meters when inside a building, we couldn't achieve sufficient locality using this technology. We therefore turned our focus to Bluetooth Low Energy. The range of 10-20 meters is optimal considering the desired behavior and less power consuming than GPS. Furthermore Bluetooth Low Energy provides a well established protocol with wide-spread hardware compatibility.
@@ -196,6 +196,15 @@ As such, we assume that it proposes a highly-scalable technology with the abilit
 Our proposed system architecture is a well-established solution in a novel setting.
 Conventional P2P don't use mobile devices but stationary, reliably and well-connected agents. 
 Our system architecture is simple, as we will use one central \textbf{tracker}, which will handle the distribution and communication logic of the photos and nodes, and $ n $ number of \textbf{nodes}, which will form the phones that can upload and receive the pictures.
+
+\subsection{Bluetooth Low Energy}
+For the Bluetooth Low Energy we have come up with the following protocol: 
+Each device will have a well known GATT service for Ripples. In this service there is a well known characterisitic that stores a sequence number. In addition, the service will have a characteristic for each Ripple it is currently advertising. The UUID of that characteristic is used for querying the torrent file from the central server.
+
+The device is constantly scanning for devices with the Ripple GATT service and connects to them automatically.
+
+If a device wants to send/broadcast a Ripple, it adds a characteristic with the respective UUID to the Ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existance of a new Ripple. The receiving device will then scan for new characteristics and continue to retreiving the image for the Ripple.
+
 
 \subsection{Components}
 Given the above system architecture, we have two components. 
