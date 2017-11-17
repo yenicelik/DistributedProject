@@ -1,38 +1,41 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.26)  17 NOV 2017 23:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.16)  17 NOV 2017 23:39
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**report.tex
+**report
 (./report.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
-(./report.cls (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/epsfig.sty
+Babel <3.10> and hyphenation patterns for 22 language(s) loaded.
+(./report.cls
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count79
@@ -43,10 +46,10 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen104
 \epsfysize=\dimen105
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup4
@@ -54,24 +57,24 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/11/05 v2.16a AMS math features
 \@mathmargin=\skip41
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen106
 ))
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen107
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count80
@@ -146,7 +149,7 @@ LaTeX Warning: You have requested document class `report',
 
 Document Class: sig-alternate 2012/05/23 - V2.5 - based on acmproc.cls V1.3 <No
 v. 30 '99>
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/latexsym.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
@@ -171,25 +174,25 @@ LaTeX Info: Redefining \cite on input line 1193.
 \bibindent=\dimen122
 \colcntr=\count108
 \saveb@x=\box29
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1enc.def
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 )
 LaTeX Font Info:    Try loading font information for T1+aer on input line 105.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/ae/t1aer.fd
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 )))
-(/usr/local/texlive/2017/texmf-dist/tex/generic/babel/babel.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2017/05/19 3.10 The Babel package
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/babel-english/english.ldf
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/01/24 v3.3q English support from the babel system
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/babel/babel.def
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2017/05/19 3.10 Babel common definitions
 \babel@savecnt=\count109
 \U@D=\dimen123
@@ -198,10 +201,10 @@ File: babel.def 2017/05/19 3.10 Babel common definitions
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/tabularx.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/array.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/tools/array.sty
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen124
 \extrarowheight=\dimen125
@@ -217,7 +220,7 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \TX@cols=\count110
 \TX@ftn=\toks30
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/subfigure/subfigure.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip46
 \subfigcapskip=\skip47
@@ -233,11 +236,11 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-(/usr/local/texlive/2017/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip50
 \subfig@bottom=\skip51
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip52
 \enit@outerparindent=\dimen133
@@ -245,19 +248,19 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box30
 \enitdp@description=\count115
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count116
 \lst@gtempboxa=\box31
 \lst@token=\toks32
@@ -273,18 +276,18 @@ Package color Info: Driver file: pdftex.def on input line 147.
 \belowcaptionskip=\skip54
 \lst@maxwidth=\dimen137
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count122
 \lst@skipnumbers=\count123
 \lst@framebox=\box32
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (./report.aux)
@@ -303,7 +306,7 @@ LaTeX Font Info:    ... okay on input line 106.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
 LaTeX Font Info:    ... okay on input line 106.
 
-(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2017basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count124
 \scratchdimen=\dimen138
@@ -316,15 +319,15 @@ LaTeX Font Info:    ... okay on input line 106.
 \MPnumerator=\count128
 \makeMPintoPDFobject=\count129
 \everyMPtoPDFconversion=\toks34
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+) (/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
@@ -332,22 +335,21 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+)) (/usr/local/texlive/2017basic/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2017basic/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -361,103 +363,100 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count130
 LaTeX Font Info:    Try loading font information for U+msa on input line 108.
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 108.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 108.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ulasy.fd
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+aess on input line 165.
+<rippleslide.png, id=1, 1584.92125pt x 1375.1375pt>
+File: rippleslide.png Graphic file (type png)
+ <use rippleslide.png>
+Package pdftex.def Info: rippleslide.png used on input line 173.
+(pdftex.def)             Requested size: 240.0pt x 208.23412pt.
 
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/ae/t1aess.fd
-File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
-) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1{/usr/local/texlive/2017basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-<rippleslide.png, id=13, 1584.92125pt x 1375.1375pt>
-File: rippleslide.png Graphic file (type png)
- <use rippleslide.png>
-Package pdftex.def Info: rippleslide.png used on input line 177.
-(pdftex.def)             Requested size: 240.0pt x 208.23412pt.
-
-<overview.jpg, id=15, 1027.84pt x 1027.84pt>
+<overview.jpg, id=13, 1027.84pt x 1027.84pt>
 File: overview.jpg Graphic file (type jpg)
  <use overview.jpg>
-Package pdftex.def Info: overview.jpg used on input line 215.
+Package pdftex.def Info: overview.jpg used on input line 211.
 (pdftex.def)             Requested size: 240.0pt x 239.98976pt.
  [2 <./rippleslide.png> <./overview.jpg>]
-Overfull \hbox (3.97612pt too wide) in paragraph at lines 228--229
-\T1/aer/m/n/9 chose to use the JavaScript bittorrent-tracker li-brary []\T1/aes
-s/bx/n/9 [[LINK]][]
- []
-
-
-Overfull \hbox (9.19661pt too wide) in paragraph at lines 263--264
+Overfull \hbox (9.19661pt too wide) in paragraph at lines 261--262
 []\T1/aer/m/n/9 The dis-tri-bu-tion server will be im-ple-mented in JavaScript
  []
 
 
-Overfull \hbox (1.73665pt too wide) in paragraph at lines 276--277
+Overfull \hbox (1.73665pt too wide) in paragraph at lines 274--275
 []\T1/aer/bx/n/9 WP2 - Dis-tri-bu-tion Server\T1/aer/m/n/9 : Im-ple-ment-ing a 
 REST-
  []
 
 
-Overfull \hbox (14.12767pt too wide) in paragraph at lines 279--280
+Overfull \hbox (14.12767pt too wide) in paragraph at lines 277--278
 []\T1/aer/bx/n/9 WP5 - BLE Send-ing\T1/aer/m/n/9 : Im-ple-ment-ing the send-ing
 /broad-
  []
 
-[3] (./report.bbl
+(./report.bbl [3]
 LaTeX Font Info:    Try loading font information for T1+aett on input line 5.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/ae/t1aett.fd
+
+(/usr/local/texlive/2017basic/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-! Misplaced alignment tab character &.
-l.14 {Simple, robust, BitTorrent tracker (client &
+./report.bbl:29: Misplaced alignment tab character &.
+l.29 {Simple, robust, BitTorrent tracker (client &
                                                    server) implementation}.
-? 
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
 ) [4
 
 ] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 5175 strings out of 492995
- 70268 string characters out of 6132704
- 167466 words of memory out of 5000000
- 8597 multiletter control sequences out of 15000+600000
- 48871 words of font info for 68 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 5150 strings out of 494437
+ 70372 string characters out of 6166644
+ 163773 words of memory out of 5000000
+ 8371 multiletter control sequences out of 15000+600000
+ 45495 words of font info for 64 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
  41i,11n,40p,629b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.e
-nc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-Output written on report.pdf (4 pages, 7706939 bytes).
+{/usr/local/texlive/2017basic/texmf-dist/fonts/enc/dvips/base
+/8r.enc}</usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx9.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr9.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy9.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmti9.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/urw/
+helvetic/uhvb8a.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/urw/ti
+mes/utmb8a.pfb>
+Output written on ./report.pdf (4 pages, 7695239 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 50 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
