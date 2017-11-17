@@ -223,30 +223,32 @@ Conventional P2P don't use mobile devices but stationary, reliably and well-conn
 Our system architecture is simple, as we will use one central \textbf{tracker}, which will handle the distribution and communication logic of the photos and nodes, and $ n $ number of \textbf{nodes}, which will form the phones that can upload and receive the pictures.
 We use a tracker instead of distributed hash table (DHT) to improve the speed of peer discovery and lower the overhead.
 
-\subsection{Distribution of Torrent Files}
-One of the challenges that we face is the limited data rates using BLE.
-That leads to the issue that we can't distribute the torrent files via BLE but instead we use a Server that distributes the torrent files to nodes that request them by sending a UUID of a picture. \newline
-Node A sends the UUID to Node B after uploading it to the server and notifying the tracker of a new file. 
-Node B requests the torrent file by sending the UUID to the server.
-The server verifies the UUID by look up in a database, retrieving the corresponding torrent and sending it to Node B. Node B can now use the torrent file to download the picture over the BitTorrent Protocol by contacting the Tracker, which provides a list of seeds.
-
-\subsection{Bluetooth Low Energy}
-For the Bluetooth Low Energy we have come up with the following protocol: 
-Each device will have a well known GATT service for Ripples. In this service there is a well known characterisitic that stores a sequence number. In addition, the service will have a characteristic for each Ripple it is currently advertising. The UUID of that characteristic is used for querying the torrent file from the central server.
-
-The device is constantly scanning for devices with the Ripple GATT service and connects to them automatically.
-
-If a device wants to send/broadcast a Ripple, it adds a characteristic with the respective UUID to the Ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existance of a new Ripple. The receiving device will then scan for new characteristics and continue to retreiving the image for the Ripple.
-
-
 \subsection{BitTorrent File Transfer}
-Image files, which make up the largest portion of the data traffic, are transfered between devices peer-to-peer using the BitTorrent protocol.
+Image files, which make up the largest portion of the data traffic, are transferred between devices peer-to-peer using the BitTorrent protocol.
 
 We will use the ttorrent library\todo{LINK}, a Java implementation of the BitTorrent protocol. With the help of this library, every device will run a BitTorrent client in an Android Service\todo{LINK}.
 
 Each phone seeds all images it creates and receives for 24 hours. This way many seeding devices should become available quickly allowing for the load to be shared effectively. Furthermore, there is no need for any device or server to store the full image file indefinitely.
 
 The BitTorrent protocol relies on a central tracker to let clients know which other clients are seeding the file. We chose to use the JavaScript bittorrent-tracker library \todo{LINK} to achieve this functionality. The tracker will run on an Amazon EC2 \todo{LINK} instance.
+
+\subsection{Distribution of Torrent Files}
+One of the challenges that we face is the limited data rates of the Bluetooth Low Energy protocol.
+
+This leads to the issue that we can't transmit torrent files via Bluetooth Low Energy. Instead we have decided to use a distribution server, which associates torrent files with UUIDs.
+
+Before broadcasting a new Ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stored the torrent file in a database and returns a UUID. 
+
+To retrieve a torrent file, the application submits a HTTP GET request containing the UUID. The server verifies the UUID by looking it up in a database and returns the corresponding torrent file. The application can then use it to invoke the BitTorrent protocol and download the associated image file.
+
+\subsection{Bluetooth Low Energy}
+For the advertisement of Ripples we will use the Bluetooth Low Energy protocol as follows:
+
+Each device will have a well known GATT service for Ripples. In this service there is a well known characteristic that stores a sequence number. In addition, the service will have a characteristic for each Ripple it is currently advertising. The UUID of that characteristic is used to query the torrent file from the central server.
+
+The application is constantly scanning for devices with the Ripple GATT service and connects to them automatically.
+
+If a device wants to send/broadcast a Ripple, it adds a characteristic with the respective UUID to the Ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existence of a new Ripple. The receiving device will then scan for new characteristics and proceed to retrieve the image for the Ripple.
 
 \subsection{Components}
 Given the above system architecture, we have two components. 
