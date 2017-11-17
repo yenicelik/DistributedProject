@@ -196,6 +196,14 @@ As such, we assume that it proposes a highly-scalable technology with the abilit
 Our proposed system architecture is a well-established solution in a novel setting.
 Conventional P2P don't use mobile devices but stationary, reliably and well-connected agents. 
 Our system architecture is simple, as we will use one central \textbf{tracker}, which will handle the distribution and communication logic of the photos and nodes, and $ n $ number of \textbf{nodes}, which will form the phones that can upload and receive the pictures.
+We use a tracker instead of distributed hash table (DHT) to improve the speed of peer discovery and lower the overhead.
+
+\subsection{Distribution of Torrent Files}
+One of the challenges that we face is the limited data rates using BLE.
+That leads to the issue that we can't distribute the torrent files via BLE but instead we use a Server that distributes the torrent files to nodes that request them by sending a UUID of a picture. \newline
+Node A sends the UUID to Node B after uploading it to the server and notifying the tracker of a new file. 
+Node B requests the torrent file by sending the UUID to the server.
+The server verifies the UUID by look up in a database, retrieving the corresponding torrent and sending it to Node B. Node B can now use the torrent file to download the picture over the BitTorrent Protocol by contacting the Tracker, which provides a list of seeds.
 
 \subsection{Bluetooth Low Energy}
 For the Bluetooth Low Energy we have come up with the following protocol: 
@@ -210,7 +218,7 @@ If a device wants to send/broadcast a Ripple, it adds a characteristic with the 
 Given the above system architecture, we have two components. 
 
 \begin{enumerate}
-\item \textbf{Tracker:} Handles the distribution logic of the photos, without storing  the pictures. 
+\item \textbf{Tracker:} Handles the distribution logic of the photos, without storing the pictures. 
 Only IP, location, permissions etc. are uploaded and downloaded from the server, allowing this to have a low worst-case and average load. 
 \item \textbf{Nodes:} Are the phones that receive the photos. 
 %%DESCRIBE WHICH PROTOCOLS TO USE
