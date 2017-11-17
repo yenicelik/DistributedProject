@@ -112,7 +112,7 @@ We propose a social networking application for sharing photos in close physical 
 
 A user can take a picture, which is then broadcasted to all phones that are in the direct vicinity and part of the network.
 
-The application use the Bluetooth Low Energy Protocol for close proximity device discovery and messaging. However, the fundamental transfer of image files leverages peer-to-peer technology to reduce operational costs and increase performance. 
+The application uses the Bluetooth Low Energy Protocol for close proximity device discovery and messaging. However, the fundamental transfer of image files leverages peer-to-peer technology to reduce operational costs and increase performance. 
 
 Every device runs a BitTorrent client, which seeds images it has already downloaded to other nodes within the network. The discovery of seeding devices is provided by a central BitTorrent tracker.
 
@@ -135,15 +135,15 @@ We first introduce a few definitions.
 \end{enumerate}
 
 \subsection{Problem Statement and Motivation}
-There are numerous social networks, such as Instagram and Snapchat, allowing users to share moments with a specific group of people.
+There are numerous social networks, such as Instagram and Snapchat, that allow users to share moments with a specific group of people.
 These services are often criticized for removing the personal element from social communication, because users are sitting behind screens or using their phones, rather than actually spending time together.
 
 Our approach to social networking is to augment social interaction, rather than redefining and possibly inhibiting it. Social Networks should help form connections between people and not just build on existing ones.
 
 \subsection{Concept}
-Considering the above problem statement, we propose Ripple: a social network allowing users to share moments with other users in their close proximity. The social network will consist of a freely available Android application with a focus on photos.
+Considering the above problem statement, we propose Ripple: a social network that allows users to share moments with other users in their close proximity. The social network will consist of a freely available Android application with a focus on photos.
 
-After a user takes a picture it is broadcasted to all other users of the app in their immediate vicinity, regardless of their affiliation with the broadcasting user. Communication is in principle anonymous (disregarding content) and always public.
+After a user takes a picture, it is broadcasted to all other users of the app in their immediate vicinity, regardless of their affiliation with the broadcasting user. Communication is, in principle, anonymous (disregarding content) and always public.
 
 Users receiving brodcasted images may view them once. They are then presented with the choice of either simply discarding the image or instead rebroadcasting ('re-rippling') it to other users in their proximity.
 Each user can view the ripple only once regardless of the number of re-ripples near them.
@@ -194,7 +194,7 @@ It became clear early on that Bluetooth Low Energy would not have high enough da
 
 While this implementation works, storage and bandwidth costs especially for a later support of video files would be fairly high. With the intentions of shifting most of the load to user devices and not storing the image data on a central server we looked into peer to peer technology. We considered the use of IPFS but decided to use the BitTorrent file sharing protocol since it is well established and commonly used with a large amount of software support. \todo{java library} 
 
-With BitTorrent the devices can distribute the content between themselves. However, this requires a torrent file, leading to the question of how to send this file to other devices. Our first idea was to send the torrent file over Bluetooth Low Energy. But since torrent files can have a significant size themselves and BLE only allows for low data rates, we chose to only pass an identifier over Bluetooth and retrieve the torrent file from the central server  using a custom RESTful HTTP API. Since one torrent file is only a few kilobytes big, we have significantly lowered the cost by several orders of magnitude.
+With BitTorrent the devices can distribute the content amongst themselves. However, this requires a torrent file, leading to the question of how to send this file to other devices. Our first idea was to send the torrent file over Bluetooth Low Energy. But since torrent files can have a significant size themselves and BLE only allows for low data rates, we chose to only pass an identifier over Bluetooth and retrieve the torrent file from the central server  using a custom RESTful HTTP API. Since one torrent file is only a few kilobytes big, we have significantly lowered the cost by several orders of magnitude.
 
 
 \section{System Overview}
@@ -232,7 +232,7 @@ This leads to the issue that we can't transmit torrent files via Bluetooth Low E
 
 Before broadcasting a new Ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stores the torrent file in a MySQL database and returns a UUID. 
 
-To retrieve a torrent file, the application submits a HTTP GET request containing the UUID. The server verifies the UUID by looking it up in a database and returns the corresponding torrent file. The application can then use it to invoke the BitTorrent protocol and download the associated image file.
+To retrieve a torrent file, the application submits an HTTP GET request containing the UUID. The server verifies the UUID by looking it up in a database and returns the corresponding torrent file. The application can then use it to invoke the BitTorrent protocol and download the associated image file.
 
 \subsection{Bluetooth Low Energy}
 For the advertisement of Ripples we will use the Bluetooth Low Energy protocol as follows:
