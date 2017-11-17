@@ -267,40 +267,34 @@ This instance has free plans for low usage-tiers, and as such, is sufficient for
 \end{figure}
 
 \section{Work Packages}
-We figured out that working in the past group structures allowed developers to be flexible but also effective in their work. As such, we define broad tasks with specific goals.
-In the following, we present tasks, that when done, result in a robust and well-working app.
+We identified and sectioned the project in the following work packages: 
 
 \begin{itemize}
-        \item {\bf WP1}:  Build an Android front-end that can take pictures and temporarily saves it in a local storage.    
-        \item {\bf WP2}:  Build an Android back-end which acts as a node. 
-        It should be able to transfer files from one device to another, and save it to the local storage.
-        \item {\bf WP3}: Build the transition between WP1 and WP2 such that all transmitted files are displayed on the receiver using the front-end.    
-        \item {\bf WP4}: Initialize and configure backend server which is supposed to serve as a tracker.    
-        \item {\bf WP5}: Create all API endpoints which accept device ID's and picture-identifiers, and checks which photos are delivered to which devices. 
-        The UUID can act as an unique identifier for each node.    
-        \item {\bf WP6}: Implement P2P logic in the node backend that pings other phones for a photo, if a photo was not yet received (which is determined by the received photo id's). 
-        \item {\bf WP7}: Extensive usage testing and debugging.
+    \item {\bf WP1 - BitTorrent Client}: Implementing the management of the embedded BitTorrent Client.
+    \item {\bf WP2 - Distribution Server}: Implementing a RESTful API for torrent file distribution.
+    \item {\bf WP3 - Camera UI}: Implementing the camera and photo capture functionality of the app using the Android API.
+    \item {\bf WP4 - Receive UI}: Implementing the receive stack of Ripples including the reripple and discard functionality.
+    \item {\bf WP5 - BLE Sending}: Implementing the sending/broadcasting of Ripples via Bluetooth Low Energy.
+    \item {\bf WP6 - BLE Receiving}: Implementing the receiving and scanning of Ripples via Bluetooth Low Energy.
+    \item {\bf WP7 - Local Database}: Implementing an interface to a local SQLite database for the storage of send and received Ripples.
 \end{itemize}
+
+Each working package is intended to be done by an individual team member. Due to the dependencies of some of the packages it is necessary for certain group members to work together. Since some work packages are more extensive than others, team members are encouraged to help their fellow team mates when done with their own part. In the later stages of the project more and more interaction will be required in order to have a working and coherent application for the final submission. 
  
 \section{Milestones}
 
+We plan to uphold the following schedule:
+\begin{itemize}
+\item  \textbf{24. Nov. 2017}: First working versions of the individual work packages
+\item  \textbf{4. Dec. 2017}: Integrated all work packages into one coherent app
+\item \textbf{8. Dec. 2017}: Tested application on multiple nodes, identifying bugs and generally debugging the system
+\item \textbf{14. Dec. 2017}: Finished presentation and Ripple logo. 
+\item \textbf{15. Dec. 2017}: Deadline for submission of presentation slides and project logo.
+\item \textbf{16. Dec. 2017}: Finished debugging entire system and fully working version of the app.
+\item \textbf{17. Dec. 2017}: Deadline for submission of code.
+\item \textbf{18. Dec. 2017}: Presentation and demo of project.
+\end{itemize}
 
-\subsection{Schedule}
-We form a temporal schedule on what tasks should be achieved, sorted by upcoming dates.
-\begin{enumerate}
-\item  \textbf{24. Nov. 2017}: We plan on finishing the work packages that are considered part of the app, namely \textit{WP1} and \textit{WP2}, .
-\item  \textbf{1. Dec. 2017}: We intend to finish setting up the central tracker, and all it's API functions. These are part of \textit{WP3} and \textit{WP4}.
-\item \textbf{8. Dec. 2017}: We plan to do a naive implementation of the entire system, where the tracker communicates with the phones the photos to be downloaded, and the photos are communicated between the individual nodes. This is concluded by \textit{WP5} and  \textit{WP6} 'putting the components together'.
-\item \textbf{15. Dec. 2017}: Assuming all went as planned, we would try to test the network on a multi-node connection ($n < 3$), identifying bugs and generally debugging the system. 
-We would possibly try to identify network congestion behaviour and try to optimize these (\textit{WP7}).
-\end{enumerate}
-
-
-\subsection{Assignment to team members}
-Luckily, all tasks are extensive enough that a majority of team members can work on the individual working packages individually. 
-As such, for each deadline (\textit{24. Nov. 2017}, \textit{1. Dec. 2017}, \textit{8. Dec. 2017}, \textit{15. Dec .2017}), we plan to split the team into two sub-sections, each of which handles one working package. Within each working package, we intend to have a flexible schedule amongst team-members, as this has proven to be effective in the past few Android projects. 
-The last part (\textit{WP7}) is not well-predictable as of now. 
-Our previous experience has shown us that collectively listing issues and working on these issues one-by-one has proven to be an effective way to debug and optimize our program.
 
 \bibliographystyle{abbrv}
 \bibliography{report}  % sigproc.bib is the name of the Bibliography in this case
