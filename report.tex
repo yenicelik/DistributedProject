@@ -74,7 +74,7 @@
 
 % General information
 
-\title{Ripple - The future of local social networking\\
+\title{Ripple BT - The future of local social networking\\
 \normalsize{Distributed Systems -- Project Proposal}}
 \subtitle{subtitle}
 
@@ -108,6 +108,7 @@
 \maketitle
 
 \begin{abstract}
+\todo{Make this shorter}
 We propose a novel social networking application for sharing photos in close physical proximity. 
 A user can take a picture, which is then broadcasted to all phones that are part of the network and in the direct vicinity. \\
 To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
@@ -132,25 +133,24 @@ We first introduce a few definitions.
 \item \textbf{$ n $}: The number of nodes in observed network. In our case, these nodes will be android devices.
 \end{enumerate}
 
-\subsection{Problem statement}
-There have been numerous social networking applications that connect people over a range of topics. 
-Such services include Instagram and Snapchat, where a person shares his or her moments with a local group of people, namely their friends. 
-However, none of these services share their appreciated moments with people nearby (measured by geographical proximity). 
-As such, we propose Ripple: a local social networking app where people share their appreciated moments with anyone near them.
+\subsection{Problem Statement and Motivation}
+There are numerous social networks, such as Instagram and Snapchat, allowing users to share moments with a specific group of people.
+These services are often criticized for removing the personal element from social communication, because users are sitting behind screens or using their phones, rather than actually spending time together.\\
+Our approach to social networking is to augment social interaction, rather than redefining and possibly inhibiting it. Social Networks should help form connections between people and not just build on existing ones.
 
-\subsection{Application scenario}
-We propose a novel Android application and demostrate it's application scenario by first defining a group of people, namely \textit{Alice}, \textit{Bob}, \textit{Charlie}, \textit{Daniel}.
-Alice sees a human rights demonstration, and captures a symbolic and emotionally photo of a police officer shouting at a demonstrator. 
-Bob, who is home but nearby the demonstrations  receives this photo and deeply appreciates this moment. 
-He decides to share this photo again. Due to the rules of our network, this picture is shared with anyone close to Bob. Because Charlie and Daniel also have the Ripple app installed, and are physically close enough to Bob, Charlie and Daniel also receive this photo. They again have the opportunity to further share this photo, or simply 'drop' it and block further 'propagation' of this photo.
+\subsection{Concept}
+Considering the above problem statement, we propose Ripple: a social network allowing users to share moments with other users in their close proximity. The social network will consist of a freely available Android application with a focus on photos.\\
+After a user takes a picture it is broadcasted to all other users of the app in their immediate vicinity, regardless of their affiliation with the broadcasting user. Communication is in principle anonymous (disregarding content) and always public.\\
+Users receiving brodcasted images may view them once. They are then presented with the choice of either simply discarding the image or instead rebroadcasting ('re-rippling') it to other users in their proximity.
+Each user can view the ripple only once regardless of the number of re-ripples near them.\\
+We believe this social network will encourage social interaction, as the communication can only take place when users are close to each other. Furthermore, the network allows interesting content to 'propagate', making it possible to share memorable moments in a wider radius.
 
-\subsection{Motivation}
-The idea behind the above described mechanism is that the mass forms a selective filter over what content to share. 
-If a ripple is 'good', it has the chance to be propagated over all ripple users, as the photo will be propagated repeatedly. 
-This allows the entire userbase to experience pictures that are meaningful to the user, for the reason that the receiver is 'in proximity' to the event. 
-More specifically, if the first share indicates appreciation of the picture, and each additional share indicates consistence in this appreciation, then - by induction - everyone feels appreciation of this picture.
-Generally, the more important the event is, the more 'close' a person feels to this to this event. 
-If, however, a photo is of bad quality or is not appreciated, local users will quickly stop the photo to be propagated, forming a natural blockade for any non-appreciated pictures.
+\subsection{Application Scenario}
+We will demonstrate a typical use case of the Android application in a group of people attending an event: \textit{Alice}, \textit{Bob}, \textit{Charlie} and \textit{Daniel}.\\
+Alice takes a funny photo of a particular activity at the event and wants to raise awareness of the activity with other attendees. She therefore uses Ripple to share the image.\\
+Bob, who is not far away receives the ripple and is intrigued by the picture. He thinks others might share his intrigue and re-ripples the image.\\
+Charlie and Daniel are in close proximity of Bob but not of Alice. As Bob is also broadcasting the image and they have the Ripple app installed, they now also receive the ripple.\\
+Following this scheme the ripple spreads out and propagates, maybe even beyond the event's location.
 
 \subsection{Challenges}
 This task proposes a challenge because 
