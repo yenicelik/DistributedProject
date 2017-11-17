@@ -164,7 +164,7 @@ Following this scheme the ripple spreads out and propagates, maybe even beyond t
 \subsection{Background}
 This concept is related to an iOS application developed at the START Hack hackathon in March 2017. \todo{Insert link to Devpost} It is a basic implementation of this concept using Amazon S3 to store images, so they can be downloaded by the receiving devices. Bluetooth Low Energy is used to advertise images by setting the value of a well known GATT characteristic to the UUID of the image in the S3 bucket.
 
-While this implementation works, it has several flaws. Firstly, uploading every image to an Amazon S3 bucket means that operation costs for storage are bound to be high without heavy compression, leading to low quality content.
+While this implementation works, it has several flaws. Firstly, uploading every image to an Amazon S3 bucket means that operation costs for storage are bound to be high without heavy compression.
 
 Similarly, repeatedly downloading the image from one central point, causes high bandwidth consumption and possibly unnecessary data transfer costs.
 
@@ -202,8 +202,6 @@ With BitTorrent the devices can distribute the content between themselves. Howev
 \subsection{System Architecture}
 To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
 
-Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.
-
 The fundamental transfer of image files is done using BitTorrent. A central tracker will facilitate the discovery of nodes in accordance with the BitTorrent protocol. A receiving node will then download the image form the initial node and from other nodes, which have already completed the download.
 
 A centralized server further allows devices to retrieve torrent files, which are necessary in the BitTorrent protocol.
@@ -232,7 +230,7 @@ One of the challenges that we face is the limited data rates of the Bluetooth Lo
 
 This leads to the issue that we can't transmit torrent files via Bluetooth Low Energy. Instead we have decided to use a distribution server, which associates torrent files with UUIDs.
 
-Before broadcasting a new Ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stored the torrent file in a MySQL database and returns a UUID. 
+Before broadcasting a new Ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stores the torrent file in a MySQL database and returns a UUID. 
 
 To retrieve a torrent file, the application submits a HTTP GET request containing the UUID. The server verifies the UUID by looking it up in a database and returns the corresponding torrent file. The application can then use it to invoke the BitTorrent protocol and download the associated image file.
 
@@ -265,11 +263,11 @@ We plan on using the following libraries and frameworks in the application:
 \end{itemize}
 
 \subsection{3rd party services}
-We also intend on using Amazon AWS EC2  as a tracker, allowing the individual nodes to ping for all photos that should be delivered, and for the senders to actually deliver them.
-This instance has free plans for low usage-tiers, and as such, is sufficient for our needs.
+We also intend on using an Amazon EC2 instance to host the tracker and distribution server.
+This instance has free plans for evaluation usage sufficient for our needs at the moment.
 
 \section{Work Packages}
-We identified and sectioned the project in the following work packages: 
+We identified and divided the project into the following work packages: 
 
 \begin{itemize}
     \item {\bf WP1 - BitTorrent Client}: Implementing the management of the embedded BitTorrent Client.
