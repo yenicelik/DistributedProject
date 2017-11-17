@@ -167,13 +167,21 @@ With Ripple BT we aim to redesign the system from the ground up with a focus on 
 \end{figure}
 
 \subsection{Challenges}
-This task proposes a challenge because 
-
-\begin{enumerate}
-\item We work with a theoretically exponentially increasing number of users receiving a single ripple causing possibly high loads if deployed on a centralized server.
-Any high-loaded point in the delivery-network could form a point of failure.
-\item We must find a dynamic way for users to receive enough ripples to be engaged, but at the same time not to be spammed with photos.
+This project has two main distributed challenges:
+\begin{enumerate} 
+    \item Find users in close proximity
+    \item Send the image data
 \end{enumerate}
+
+For the first challenge of user discovery we investigated using GPS data to track the user location. Since GPS has a fairly weak accuarcy with uncertanties as high as a few hundred meters when inside a building, we couldn't achieve sufficient locality using this technology. We therefore turned our focus to Bluetooth Low Energy. The range of 10-20 meters is optimal considering the desired behavior and less power consuming than GPS. Furthermore Bluetooth Low Energy provides a well established protocol with wide-spread hardware compatibility.
+
+We considered the following aspects for the second challenge of sending the image data.
+It became clear early on that Bluetooth Low Energy would not have high enough data rates to send an entire image from one device to another in a reasonable time frame and acceptable reliability. For this reason we first looked into a centralized structure (using Amazon S3) where images are stored with a UUID and the UUID is sent to the receiver over Bluetooth. The image can then be retreived from the central server using the UUID.
+
+While this implementation works, storage and bandwidth costs especially for a later support of video files would be fairly high. With the intentions of shifting most of the load to user devices and not storing the image data on a central server we looked into peer to peer technology. We considered the use of IPFS but decided to use the BitTorrent file sharing protocol since it is well established and commonly used with a large amount of software support. \todo{java librabry} 
+
+With BitTorrent the devices can distribute the content between themselves. However, this requires a torrent file, leading to the question of how to send this file to other devices. Our first idea was to send the torrent file over Bluetooth Low Energy. But since torrent files can have a significant size themselves and BLE only allows for low data rates, we chose to only pass an identifier over Bluetooth and retreive the torrent file from the central server  using a custom RESTful HTTP API. Since one torrent file is only a few kilobytes big, we have significantly lowered the cost by several orders of magnitude.
+
 
 \section{System Overview}
 
