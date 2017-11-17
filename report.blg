@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: report.aux
+The style file: abbrv.bst
+Database file #1: report.bib
+Warning--to sort, need author or key in sqliteLink
+Warning--to sort, need author or key in ttorrentLink
+Warning--to sort, need author or key in bittorrentTrackerLink
+Warning--to sort, need author or key in nodejsLink
+Warning--to sort, need author or key in MySQLLink
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            520 strings with 4304 characters,
+and the built_in function-call counts, 860 in all, are:
+= -- 85
+> -- 5
+< -- 0
++ -- 5
+- -- 0
+* -- 27
+:= -- 104
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 15
+chr.to.int$ -- 0
+cite$ -- 10
+duplicate$ -- 35
+empty$ -- 116
+format.name$ -- 0
+if$ -- 211
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 0
+newline$ -- 28
+num.names$ -- 0
+pop$ -- 50
+preamble$ -- 1
+purify$ -- 10
+quote$ -- 0
+skip$ -- 25
+stack$ -- 0
+substring$ -- 25
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 5
+while$ -- 0
+width$ -- 6
+write$ -- 47
+(There were 5 warnings)
