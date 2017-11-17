@@ -108,15 +108,14 @@
 \maketitle
 
 \begin{abstract}
-\todo{Make this shorter}
-We propose a novel social networking application for sharing photos in close physical proximity. 
-A user can take a picture, which is then broadcasted to all phones that are part of the network and in the direct vicinity. \\
+We propose a social networking application for sharing photos in close physical proximity. 
+A user can take a picture, which is then broadcasted to all phones that are in the direct vicinity and part of the network. \\
 To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
 Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.\\
 The fundamental transfer of image files is done using BitTorrent. A central tracker will facilitate the discovery of nodes in accordance with the BitTorrent protocol. A receiving node will then download the image form the initial node and from other nodes, which have already completed the download. The tracker will use a JavaScript BitTorrent implementation \todo{Link} executed in a node.js environment hosted on a AWS EC2 instance.\\
 Devices use the Bluetooth Low Energy Protocol for close proximity device discovery and for transmitting identifying information of  the broadcasted images.\\
 A centralized server further allows devices to retrieve torrent files, which are necessary for the BitTorrent protocol.\\
-Our goal is to have a fully-working prototype with the proposed architecture, where a single node delivers to another node, and where a node can ping other nodes if it is 'missing' a photo.  \todo{???}
+Our goal is to have a fully-working prototype with the proposed architecture.
 All participating, delivering and receiving nodes are determined by the tracker.
 \end{abstract}
 
@@ -258,7 +257,7 @@ In the following, we present tasks, that when done, result in a robust and well-
         \item {\bf WP3}: Build the transition between WP1 and WP2 such that all transmitted files are displayed on the receiver using the front-end.    
         \item {\bf WP4}: Initialize and configure backend server which is supposed to serve as a tracker.    
         \item {\bf WP5}: Create all API endpoints which accept device ID's and picture-identifiers, and checks which photos are delivered to which devices. 
-        The uuid can act as an unique identifier for each node.    
+        The UUID can act as an unique identifier for each node.    
         \item {\bf WP6}: Implement P2P logic in the node backend that pings other phones for a photo, if a photo was not yet received (which is determined by the received photo id's). 
         \item {\bf WP7}: Extensive usage testing and debugging.
 \end{itemize}
