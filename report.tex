@@ -232,18 +232,18 @@ One of the challenges that we face is the limited data rates of the Bluetooth Lo
 
 This leads to the issue that we can't transmit torrent files via Bluetooth Low Energy. Instead we have decided to use a distribution server, which associates torrent files with UUIDs.
 
-Before broadcasting a new Ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stored the torrent file in a database and returns a UUID. 
+Before broadcasting a new ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stored the torrent file in a database and returns a UUID. 
 
 To retrieve a torrent file, the application submits a HTTP GET request containing the UUID. The server verifies the UUID by looking it up in a database and returns the corresponding torrent file. The application can then use it to invoke the BitTorrent protocol and download the associated image file.
 
 \subsection{Bluetooth Low Energy}
-For the advertisement of Ripples we will use the Bluetooth Low Energy protocol as follows:
+For the advertisement of ripples we will use the Bluetooth Low Energy protocol as follows:
 
-Each device will have a well known GATT service for Ripples. In this service there is a well known characteristic that stores a sequence number. In addition, the service will have a characteristic for each Ripple it is currently advertising. The UUID of that characteristic is used to query the torrent file from the central server.
+Each device will have a well known GATT service for ripples. In this service there is a well known characteristic that stores a sequence number. In addition, the service will have a characteristic for each ripple it is currently advertising. The UUID of that characteristic is used to query the torrent file from the central server.
 
-The application is constantly scanning for devices with the Ripple GATT service and connects to them automatically.
+The application is constantly scanning for devices with the ripple GATT service and connects to them automatically.
 
-If a device wants to send/broadcast a Ripple, it adds a characteristic with the respective UUID to the Ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existence of a new Ripple. The receiving device will then scan for new characteristics and proceed to retrieve the image for the Ripple.
+If a device wants to send/broadcast a ripple, it adds a characteristic with the respective UUID to the ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existence of a new ripple. The receiving device will then scan for new characteristics and proceed to retrieve the image for the ripple.
 
 \subsection{Local SQLite Database}
 The application needs to track information about the ripples it creates and receives. Primarily, the application concept only allows users to receive and view ripples once, so the application must be able to check for duplicates. Furthermore, the embedded BitTorrent client should only seed ripples for 24h, which will be ensured by storing the time frame in a database.
@@ -273,10 +273,10 @@ We identified and sectioned the project in the following work packages:
     \item {\bf WP1 - BitTorrent Client}: Implementing the management of the embedded BitTorrent Client.
     \item {\bf WP2 - Distribution Server}: Implementing a RESTful API for torrent file distribution.
     \item {\bf WP3 - Camera UI}: Implementing the camera and photo capture functionality of the app using the Android API.
-    \item {\bf WP4 - Receive UI}: Implementing the receive stack of Ripples including the reripple and discard functionality.
-    \item {\bf WP5 - BLE Sending}: Implementing the sending/broadcasting of Ripples via Bluetooth Low Energy.
-    \item {\bf WP6 - BLE Receiving}: Implementing the receiving and scanning of Ripples via Bluetooth Low Energy.
-    \item {\bf WP7 - Local Database}: Implementing an interface to a local SQLite database for the storage of send and received Ripples.
+    \item {\bf WP4 - Receive UI}: Implementing the receive stack of ripples including the reripple and discard functionality.
+    \item {\bf WP5 - BLE Sending}: Implementing the sending/broadcasting of ripples via Bluetooth Low Energy.
+    \item {\bf WP6 - BLE Receiving}: Implementing the receiving and scanning of ripples via Bluetooth Low Energy.
+    \item {\bf WP7 - Local Database}: Implementing an interface to a local SQLite database for the storage of send and received ripples.
 \end{itemize}
 
 Each working package is intended to be done by an individual team member. Due to the dependencies of some of the packages it is necessary for certain group members to work together. Since some work packages are more extensive than others, team members are encouraged to help their fellow team mates when done with their own part. In the later stages of the project more and more interaction will be required in order to have a working and coherent application for the final submission. 
