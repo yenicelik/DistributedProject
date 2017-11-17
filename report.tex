@@ -190,38 +190,28 @@ This project has two main distributed challenges:
     \item Sending the image data
 \end{enumerate}
 
-For the first challenge of user discovery we investigated using GPS data to track the user location. Since GPS has a fairly weak accuarcy with uncertanties as high as a few hundred meters when inside a building, we couldn't achieve sufficient locality using this technology. We therefore turned our focus to Bluetooth Low Energy. The range of 10-20 meters is optimal considering the desired behavior and less power consuming than GPS. Furthermore Bluetooth Low Energy provides a well established protocol with wide-spread hardware compatibility.
+For the first challenge of user discovery we investigated using GPS data to track the user location. Since GPS has a fairly weak accuracy with uncertainties as high as a few hundred meters when inside a building, we couldn't achieve sufficient locality using this technology. We therefore turned our focus to Bluetooth Low Energy. The range of 10-20 meters is optimal considering the desired behavior and less power consuming than GPS. Furthermore Bluetooth Low Energy provides a well established protocol with wide-spread hardware compatibility.
 
 We considered the following aspects for the second challenge of sending the image data.
-It became clear early on that Bluetooth Low Energy would not have high enough data rates to send an entire image from one device to another in a reasonable time frame and acceptable reliability. For this reason we first looked into a centralized structure (using Amazon S3) where images are stored with a UUID and the UUID is sent to the receiver over Bluetooth. The image can then be retreived from the central server using the UUID.
+It became clear early on that Bluetooth Low Energy would not have high enough data rates to send an entire image from one device to another in a reasonable time frame and acceptable reliability. For this reason we first looked into a centralized structure (using Amazon S3) where images are stored with a UUID and the UUID is sent to the receiver over Bluetooth. The image can then be retrieved from the central server using the UUID.
 
-While this implementation works, storage and bandwidth costs especially for a later support of video files would be fairly high. With the intentions of shifting most of the load to user devices and not storing the image data on a central server we looked into peer to peer technology. We considered the use of IPFS but decided to use the BitTorrent file sharing protocol since it is well established and commonly used with a large amount of software support. \todo{java librabry} 
+While this implementation works, storage and bandwidth costs especially for a later support of video files would be fairly high. With the intentions of shifting most of the load to user devices and not storing the image data on a central server we looked into peer to peer technology. We considered the use of IPFS but decided to use the BitTorrent file sharing protocol since it is well established and commonly used with a large amount of software support. \todo{java library} 
 
-With BitTorrent the devices can distribute the content between themselves. However, this requires a torrent file, leading to the question of how to send this file to other devices. Our first idea was to send the torrent file over Bluetooth Low Energy. But since torrent files can have a significant size themselves and BLE only allows for low data rates, we chose to only pass an identifier over Bluetooth and retreive the torrent file from the central server  using a custom RESTful HTTP API. Since one torrent file is only a few kilobytes big, we have significantly lowered the cost by several orders of magnitude.
+With BitTorrent the devices can distribute the content between themselves. However, this requires a torrent file, leading to the question of how to send this file to other devices. Our first idea was to send the torrent file over Bluetooth Low Energy. But since torrent files can have a significant size themselves and BLE only allows for low data rates, we chose to only pass an identifier over Bluetooth and retrieve the torrent file from the central server  using a custom RESTful HTTP API. Since one torrent file is only a few kilobytes big, we have significantly lowered the cost by several orders of magnitude.
 
 
 \section{System Overview}
 
-
 \subsection{System Architecture}
-We describe the distributed system architecture with regards to the above presented challenges. \\
+To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
 
-We intend to solve 1.) by a \textit{P2P} (peer to peer) network which makes a central server redundant.
-Instead of downloading all photos from a central server, each phone is a node and independently transmits it's captured image directly to it's close neighbours. 
-It also has the benefit that we remove any single point of failure within the system, as there are multiple possible paths to a receiver from a sender in the network of phone-nodes (assuming multiple people are in physical proximity to the sender and the receiver). 
-We must handle some logic tasks though, for which we use a central server through \textit{AWS} (Amazon Web Services), which decides which phone should receive which photos, and which other nodes to contact for this data. 
-It is important to emphasis that there are no photos saved on the server, and as such, no major load to be handled uploading and downloading.
-This effectively solves the problem of data-congestion in a single point, and reduces points of failures. 
+Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.
 
-Challenge 3.) can  be solved by using dynamic algorithms that work on the position of a user. 
-However, for this project, we assume that we are in a network where more than 5 people are in physical proximity, making any technology a viable option for distribution of the photos.
-\newline
-P2P technology has been used extensively in torrenting applications, and has proven to work reliably and efficiently. 
-As such, we assume that it proposes a highly-scalable technology with the ability to be rapidly deployable and efficient-to-run with regards to our application scenario.
-Our proposed system architecture is a well-established solution in a novel setting.
-Conventional P2P don't use mobile devices but stationary, reliably and well-connected agents. 
-Our system architecture is simple, as we will use one central \textbf{tracker}, which will handle the distribution and communication logic of the photos and nodes, and $ n $ number of \textbf{nodes}, which will form the phones that can upload and receive the pictures.
-We use a tracker instead of distributed hash table (DHT) to improve the speed of peer discovery and lower the overhead.
+The fundamental transfer of image files is done using BitTorrent. A central tracker will facilitate the discovery of nodes in accordance with the BitTorrent protocol. A receiving node will then download the image form the initial node and from other nodes, which have already completed the download.
+
+A centralized server further allows devices to retrieve torrent files, which are necessary in the BitTorrent protocol.
+
+Devices use the Bluetooth Low Energy Protocol for close proximity device discovery and for transmitting identifying information of  the broadcasted images.
 
 \subsection{BitTorrent File Transfer}
 Image files, which make up the largest portion of the data traffic, are transferred between devices peer-to-peer using the BitTorrent protocol.
