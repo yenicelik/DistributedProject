@@ -153,11 +153,19 @@ Charlie and Daniel are in close proximity of Bob but not of Alice. As Bob is als
 Following this scheme the ripple spreads out and propagates, maybe even beyond the event's location.
 
 \subsection{Background}
-This concept is related to an iOS application developed at the START Hack hackathon in March 2017. It is a basic implementation of this concept using Amazon S3 to store images, so they can be downloaded by the receiving devices. Bluetooth Low Energy is used to advertise images by setting the value of a well known GATT characteristic to the UUID of the image in the S3 bucket.\\
+This concept is related to an iOS application developed at the START Hack hackathon in March 2017. \todo{Insert link to Devpost} It is a basic implementation of this concept using Amazon S3 to store images, so they can be downloaded by the receiving devices. Bluetooth Low Energy is used to advertise images by setting the value of a well known GATT characteristic to the UUID of the image in the S3 bucket.\\
 While this implementation works, it has several flaws. Firstly, uploading every image to an Amazon S3 bucket means that operation costs for storage are bound to be high without heavy compression, leading to low quality content.\\
 Similarly, repeatedly downloading the image from one central point, causes high bandwidth consumption and possibly unnecessary data transfer costs.\\
 Beyond this, the method for announcing ripples is also suboptimal. It does not work well, when a user would like to broadcast multiple ripples in quick succession and (on iOS) does not fully work when the application is in the background.\\
 With Ripple BT we aim to redesign the system from the ground up with a focus on spreading the load of sending images among user devices, thus reducing operating costs and improving performance.
+
+\begin{figure}[h]
+	\centering
+    \includegraphics[width=\columnwidth]{rippleslide.png}
+    \lfig{example}
+    \vspace{-5mm} % use negative white space to fix too large gaps
+	\caption{Screenshots from the original Ripple application. Includes a view to take photos (left), a list of all received photos (middle), and an image viewer for received ripples (right)}
+\end{figure}
 
 \subsection{Challenges}
 This task proposes a challenge because 
@@ -211,14 +219,6 @@ Difficulties are:
 \begin{enumerate}
 \item Partial data-package-delivery
 \end{enumerate}
-
-\begin{figure}[h]
-	\centering
-    \includegraphics[width=\columnwidth]{rippleslide.png}
-    \lfig{example}
-    \vspace{-5mm} % use negative white space to fix too large gaps
-	\caption{What our final product could look like. Includes a view to take photos (left), a list of all received and opened photos (middle), and a screenshot of what a photo looks like right after when it's taken and before it's shared (right)}
-\end{figure}
 
 
 
