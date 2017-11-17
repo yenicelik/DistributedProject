@@ -222,6 +222,15 @@ Our proposed system architecture is a well-established solution in a novel setti
 Conventional P2P don't use mobile devices but stationary, reliably and well-connected agents. 
 Our system architecture is simple, as we will use one central \textbf{tracker}, which will handle the distribution and communication logic of the photos and nodes, and $ n $ number of \textbf{nodes}, which will form the phones that can upload and receive the pictures.
 
+\subsection{BitTorrent File Transfer}
+Image files, which make up the largest portion of the data traffic, are transfered between devices peer-to-peer using the BitTorrent protocol.
+
+We will use the ttorrent library\todo{LINK}, a Java implementation of the BitTorrent protocol. With the help of this library, every device will run a BitTorrent client in an Android Service\todo{LINK}.
+
+Each phone seeds all images it creates and receives for 24 hours. This way many seeding devices should become available quickly allowing for the load to be shared effectively. Furthermore, there is no need for any device or server to store the full image file indefinitely.
+
+The BitTorrent protocol relies on a central tracker to let clients know which other clients are seeding the file. We chose to use the JavaScript bittorrent-tracker library \todo{LINK} to achieve this functionality. The tracker will run on an Amazon EC2 \todo{LINK} instance.
+
 \subsection{Components}
 Given the above system architecture, we have two components. 
 
