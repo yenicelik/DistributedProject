@@ -109,12 +109,17 @@
 
 \begin{abstract}
 We propose a social networking application for sharing photos in close physical proximity. 
-A user can take a picture, which is then broadcasted to all phones that are in the direct vicinity and part of the network. \\
+A user can take a picture, which is then broadcasted to all phones that are in the direct vicinity and part of the network.
+
 To increase speed and reduce operating costs, the Android application does not solely rely on high-bandwidth connections with a centralized server, but rather uses a distributed peer to peer network to transmit photos between individual nodes.
-Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.\\
-The fundamental transfer of image files is done using BitTorrent. A central tracker will facilitate the discovery of nodes in accordance with the BitTorrent protocol. A receiving node will then download the image form the initial node and from other nodes, which have already completed the download. The tracker will use a JavaScript BitTorrent implementation \todo{Link} executed in a node.js environment hosted on a AWS EC2 instance.\\
-Devices use the Bluetooth Low Energy Protocol for close proximity device discovery and for transmitting identifying information of  the broadcasted images.\\
-A centralized server further allows devices to retrieve torrent files, which are necessary for the BitTorrent protocol.\\
+Our proposed app utilizes a combination of the Bluetooth Low Energy and BitTorrent protocols, as well as a custom RESTful HTTP API.
+
+The fundamental transfer of image files is done using BitTorrent. A central tracker will facilitate the discovery of nodes in accordance with the BitTorrent protocol. A receiving node will then download the image form the initial node and from other nodes, which have already completed the download. The tracker will use a JavaScript BitTorrent implementation \todo{Link} executed in a node.js environment hosted on a AWS EC2 instance.
+
+Devices use the Bluetooth Low Energy Protocol for close proximity device discovery and for transmitting identifying information of  the broadcasted images.
+
+A centralized server further allows devices to retrieve torrent files, which are necessary for the BitTorrent protocol.
+
 Our goal is to have a fully-working prototype with the proposed architecture.
 All participating, delivering and receiving nodes are determined by the tracker.
 \end{abstract}
@@ -134,28 +139,40 @@ We first introduce a few definitions.
 
 \subsection{Problem Statement and Motivation}
 There are numerous social networks, such as Instagram and Snapchat, allowing users to share moments with a specific group of people.
-These services are often criticized for removing the personal element from social communication, because users are sitting behind screens or using their phones, rather than actually spending time together.\\
+These services are often criticized for removing the personal element from social communication, because users are sitting behind screens or using their phones, rather than actually spending time together.
+
 Our approach to social networking is to augment social interaction, rather than redefining and possibly inhibiting it. Social Networks should help form connections between people and not just build on existing ones.
 
 \subsection{Concept}
-Considering the above problem statement, we propose Ripple: a social network allowing users to share moments with other users in their close proximity. The social network will consist of a freely available Android application with a focus on photos.\\
-After a user takes a picture it is broadcasted to all other users of the app in their immediate vicinity, regardless of their affiliation with the broadcasting user. Communication is in principle anonymous (disregarding content) and always public.\\
+Considering the above problem statement, we propose Ripple: a social network allowing users to share moments with other users in their close proximity. The social network will consist of a freely available Android application with a focus on photos.
+
+After a user takes a picture it is broadcasted to all other users of the app in their immediate vicinity, regardless of their affiliation with the broadcasting user. Communication is in principle anonymous (disregarding content) and always public.
+
 Users receiving brodcasted images may view them once. They are then presented with the choice of either simply discarding the image or instead rebroadcasting ('re-rippling') it to other users in their proximity.
-Each user can view the ripple only once regardless of the number of re-ripples near them.\\
+Each user can view the ripple only once regardless of the number of re-ripples near them.
+
 We believe this social network will encourage social interaction, as the communication can only take place when users are close to each other. Furthermore, the network allows interesting content to 'propagate', making it possible to share memorable moments in a wider radius.
 
 \subsection{Application Scenario}
-We will demonstrate a typical use case of the Android application in a group of people attending an event: \textit{Alice}, \textit{Bob}, \textit{Charlie} and \textit{Daniel}.\\
-Alice takes a funny photo of a particular activity at the event and wants to raise awareness of the activity with other attendees. She therefore uses Ripple to share the image.\\
-Bob, who is not far away receives the ripple and is intrigued by the picture. He thinks others might share his intrigue and re-ripples the image.\\
-Charlie and Daniel are in close proximity of Bob but not of Alice. As Bob is also broadcasting the image and they have the Ripple app installed, they now also receive the ripple.\\
+We will demonstrate a typical use case of the Android application in a group of people attending an event: \textit{Alice}, \textit{Bob}, \textit{Charlie} and \textit{Daniel}.
+
+Alice takes a funny photo of a particular activity at the event and wants to raise awareness of the activity with other attendees. She therefore uses Ripple to share the image.
+
+Bob, who is not far away receives the ripple and is intrigued by the picture. He thinks others might share his intrigue and re-ripples the image.
+
+Charlie and Daniel are in close proximity of Bob but not of Alice. As Bob is also broadcasting the image and they have the Ripple app installed, they now also receive the ripple.
+
 Following this scheme the ripple spreads out and propagates, maybe even beyond the event's location.
 
 \subsection{Background}
-This concept is related to an iOS application developed at the START Hack hackathon in March 2017. \todo{Insert link to Devpost} It is a basic implementation of this concept using Amazon S3 to store images, so they can be downloaded by the receiving devices. Bluetooth Low Energy is used to advertise images by setting the value of a well known GATT characteristic to the UUID of the image in the S3 bucket.\\
-While this implementation works, it has several flaws. Firstly, uploading every image to an Amazon S3 bucket means that operation costs for storage are bound to be high without heavy compression, leading to low quality content.\\
-Similarly, repeatedly downloading the image from one central point, causes high bandwidth consumption and possibly unnecessary data transfer costs.\\
-Beyond this, the method for announcing ripples is also suboptimal. It does not work well, when a user would like to broadcast multiple ripples in quick succession and (on iOS) does not fully work when the application is in the background.\\
+This concept is related to an iOS application developed at the START Hack hackathon in March 2017. \todo{Insert link to Devpost} It is a basic implementation of this concept using Amazon S3 to store images, so they can be downloaded by the receiving devices. Bluetooth Low Energy is used to advertise images by setting the value of a well known GATT characteristic to the UUID of the image in the S3 bucket.
+
+While this implementation works, it has several flaws. Firstly, uploading every image to an Amazon S3 bucket means that operation costs for storage are bound to be high without heavy compression, leading to low quality content.
+
+Similarly, repeatedly downloading the image from one central point, causes high bandwidth consumption and possibly unnecessary data transfer costs.
+
+Beyond this, the method for announcing ripples is also suboptimal. It does not work well, when a user would like to broadcast multiple ripples in quick succession and (on iOS) does not fully work when the application is in the background.
+
 With Ripple BT we aim to redesign the system from the ground up with a focus on spreading the load of sending images among user devices, thus reducing operating costs and improving performance.
 
 \begin{figure}[h]
