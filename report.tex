@@ -210,6 +210,14 @@ A centralized server further allows devices to retrieve torrent files, which are
 
 Devices use the Bluetooth Low Energy Protocol for close proximity device discovery and for transmitting identifying information of  the broadcasted images.
 
+\begin{figure}[h]
+	\centering
+    \includegraphics[width=\columnwidth]{overview.jpg}
+    \lfig{system-overview}
+    \vspace{-5mm} % use negative white space to fix too large gaps
+	\caption{System Overview}
+\end{figure}
+
 \subsection{BitTorrent File Transfer}
 Image files, which make up the largest portion of the data traffic, are transferred between devices peer-to-peer using the BitTorrent protocol.
 
@@ -257,14 +265,6 @@ The tracker has following functions in the framework:
 \subsection{3rd party services}
 We also intend on using Amazon AWS EC2  as a tracker, allowing the individual nodes to ping for all photos that should be delivered, and for the senders to actually deliver them.
 This instance has free plans for low usage-tiers, and as such, is sufficient for our needs.
-
-\begin{figure}[h]
-	\centering
-    \includegraphics[width=\columnwidth]{overview.jpg}
-    \lfig{system-overview}
-    \vspace{-5mm} % use negative white space to fix too large gaps
-	\caption{System Overview~\cite{estimote}}
-\end{figure}
 
 \section{Work Packages}
 We identified and sectioned the project in the following work packages: 
