@@ -232,7 +232,7 @@ One of the challenges that we face is the limited data rates of the Bluetooth Lo
 
 This leads to the issue that we can't transmit torrent files via Bluetooth Low Energy. Instead we have decided to use a distribution server, which associates torrent files with UUIDs.
 
-Before broadcasting a new Ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stored the torrent file in a database and returns a UUID. 
+Before broadcasting a new Ripple to other devices, the application uploads the torrent file for the image to the distribution server by means of a HTTP POST request. The server stored the torrent file in a MySQL database and returns a UUID. 
 
 To retrieve a torrent file, the application submits a HTTP GET request containing the UUID. The server verifies the UUID by looking it up in a database and returns the corresponding torrent file. The application can then use it to invoke the BitTorrent protocol and download the associated image file.
 
@@ -255,12 +255,14 @@ We have chosen to use an SQLite database for this task, as it provides all neces
 As this is a social networking application, we want to ensure that there are no hardware dependencies beyond a typical Android smartphone.
 
 \subsection{Software (libraries and frameworks)}
-%%% WRITE THIS
-[[[WRITE THIS SHIT]]]
-We plan on using existing P2P sharing networks, such as \textbf{ttorrent} \cite{ttorrentLink}.
-This library is a java framework that allows for all clients to register to a P2P network, and also allows a tracker to manage all clients in the network.
-The clients have following functions in the framework:
-The tracker has following functions in the framework:
+We plan on using the following libraries and frameworks in the application:
+\begin{itemize}
+  \item \textbf{SQLite} will be used as a local database to store information about ripples on the devices.
+  \item \textbf{ttorrent} is a Java implementation of the BitTorrent protocol, which we will use to implement the embedded BitTorrent client in the application.
+  \item The BitTorrent tracker implementation will be provided by the JavaScript \textbf{bittorrent-tracker} framework.
+  \item The distribution server will be implemented in JavaScript and run in a \textbf{node.js} environment.
+  \item A \textbf{MySQL} will store all torrent files on the distribution server.
+\end{itemize}
 
 \subsection{3rd party services}
 We also intend on using Amazon AWS EC2  as a tracker, allowing the individual nodes to ping for all photos that should be delivered, and for the senders to actually deliver them.
