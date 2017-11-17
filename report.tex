@@ -250,29 +250,9 @@ The application is constantly scanning for devices with the Ripple GATT service 
 
 If a device wants to send/broadcast a Ripple, it adds a characteristic with the respective UUID to the Ripple GATT service and increments the value of the sequence number characteristic. This will notify connected devices of potential changes and the existence of a new Ripple. The receiving device will then scan for new characteristics and proceed to retrieve the image for the Ripple.
 
-\subsection{Components}
-Given the above system architecture, we have two components. 
-
-\begin{enumerate}
-\item \textbf{Tracker:} Handles the distribution logic of the photos, without storing the pictures. 
-Only IP, location, permissions etc. are uploaded and downloaded from the server, allowing this to have a low worst-case and average load. 
-\item \textbf{Nodes:} Are the phones that receive the photos. 
-%%DESCRIBE WHICH PROTOCOLS TO USE
-These nodes communicate with each other using over simple internet protocols, and are responsible for sharing the files. As such, the load is taken away from the cloud. 
-This also makes the network more reliable and fast. There is no single point of failure, and one phone can receive small data-packets (which combined forms a picture) from multiple other phones that can provide the data packets.
-\end{enumerate}
-
-\subsection{Distributed system components and their interaction}
-[[[WRITE THIS SHIT]]]
-Think about possible additional technical details.
-Think about problems that might arise during development.
-
-Difficulties are:
-\begin{enumerate}
-\item Partial data-package-delivery
-\end{enumerate}
-
-
+\subsection{Local SQLite Database}
+The application needs to track information about the ripples it creates and receives. Primarily, the application concept only allows users to receive and view ripples once, so the application must be able to check for duplicates. Furthermore, the embedded BitTorrent client should only seed ripples for 24h, which will be ensured by storing the time frame in a database.
+We have chosen to use an SQLite database for this task, as it provides all necessary features with good performance, while being easily embeddable in the application.
 
 \section{Requirements}
 
